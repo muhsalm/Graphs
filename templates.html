@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph App</title>
+</head>
+<body>
+    <h1>Graph Plotter</h1>
+    <form method="post">
+        <label for="x_values">X Values (comma-separated):</label>
+        <input type="text" name="x_values" required>
+        
+        <label for="y_values">Y Values (comma-separated):</label>
+        <input type="text" name="y_values" required>
+        
+        <label for="graph_type">Graph Type:</label>
+        <select name="graph_type">
+            <option value="line">Line</option>
+            <option value="bar">Bar</option>
+            <option value="scatter">Scatter</option>
+        </select>
+        
+        <button type="submit">Plot</button>
+    </form>
+    
+    {% if plot_url %}
+        <h2>Your Graph:</h2>
+        <img src="data:image/png;base64,{{ plot_url }}">
+    {% endif %}
+</body>
+</html>
